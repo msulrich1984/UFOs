@@ -20,7 +20,7 @@ searchButton.on("click", function() {
       var filterDate = dateInput.value.trim();  
     // Set filteredUFOs to an array of all ufos whose "date" matches the filter
     filteredUFO = dataSet.filter(function(ufo) {
-        var ufoDate = ufo.datetime.toLowerCase();
+        var ufoDate = ufo.datetime;
   
       // If true, add the date to the filteredUFO, otherwise don't add it to filteredUFO
         return ufoDate === filterDate;
