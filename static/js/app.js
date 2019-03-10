@@ -34,7 +34,7 @@ renderTable();
   inputDate = dateInput.property("value");
   var filteredData = ufoData.filter(ufo => ufo.datetime === inputDate);
   function renderFilteredTable(){
-    d3.event.preventDefault();
+    //d3.event.preventDefault();
     console.log('oh god please work');
     filteredData.forEach((filteredData) => {
       row = tbody.append("tr");
@@ -45,18 +45,6 @@ renderTable();
         });
   }
 renderFilteredTable();
-  console.log(inputDate)  //console.log(selectUFO);
-  function renderfilteredTable() {
-  console.log("ohgodprettyplease");
-  filteredData.forEach((filteredData) => {
-    row = tbody.append("tr");
-    Object.entries(filteredData).forEach(([key, value]) => {
-      var cell = tbody.append("td");
-        cell.text(value);
-       });
-      });
-    };
-renderfilteredTable();
     /*Object.entries(filteredData).forEach(([key, value]) => {
       var cell = tbody.append("td");
         cell.text(value);
