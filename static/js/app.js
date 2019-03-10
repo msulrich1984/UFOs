@@ -1,83 +1,64 @@
 // from data.js
 var tableData = data;
-
-
+// *LOOK AT class 14>3>3
+// fudgy the whale
 // Get references to the tbody element, input field and button
 var tbody = d3.select("tbody");
-var dateInput = d3.select("datetime");
-var searchBtn = d3.select("filter-btn");
-var searchButton = d3.select("#submit");
-
-searchButton.on("click", function() {
-
-    var searchclick = dateInput;
-  if(searchclick){
-    searchButton.addEventListener('click', function handleSearchButtonClick(){
-
-// Add an event listener to the searchButton, call handleSearchButtonClick when clicked
-//searchBtn.addEventListener("click",function handleSearchButtonClick(){
-    // Format the user's search by removing leading and trailing whitespace, lowercase the string
-      var filterDate = dateInput.value.trim();  
-    // Set filteredUFOs to an array of all ufos whose "date" matches the filter
-    filteredUFO = dataSet.filter(function(ufo) {
-        var ufoDate = ufo.datetime;
-  
-      // If true, add the date to the filteredUFO, otherwise don't add it to filteredUFO
+var dateInput = d3.select("#datetime");
+var searchBtn = d3.select("#filter-btn");
+//var searchButton = d3.select("submit");
+console.log("fudgy the whale");
+//when you click the button, console burger
+searchBtn.on("click", function() {
+  //d3.event.preventDefault();
+  console.log('burger');
+    //searchBtn.addEventListener('click', function handleSearchButtonClick(){
+    // Set the filterDate to the dateInput
+  var filterDate = dateInput;  
+  tableData.filter(function(tableData) {
+    d3.event.preventDefault();    
+   
+    var ufoDate = tableData.filterDate;
+    console.log(tableData.filterDate);
+      // If true, return date
         return ufoDate === filterDate;
+
+  });
     });
   
-// Set filteredUFO to dataSet initially
-  var filteredUFO= dataSet; 
+// Set filteredUFO to the filter
+/*var filteredUFO = tableData.filter(function(tableData) {
+  //d3.event.preventDefault();
+  var filterDate = dateInput.value;      
+  var ufoDate = tableData.filterDate;
 
-// renderTable renders the filteredUFO to the tbody
+    // If true, return date
+      return ufoDate === filterDate;
+
+    });
+
+var ufoDate = filteredUFO;
+*/// renderTable renders the table and prints taco to console
   function renderTable() {
-    tbody.innerHTML = "";
-    for (var i = 0; i < filteredUFO.length; i++) {
-    // Get get the current UFO object and its fields
-      var ufo = filteredUFO[i];
-      var observations = Object.keys(ufo);
-    // Create a new row in the tbody, set the index to be i + startingIndex
-      var row = tbody.insertRow(i);
-      for (var j = 0; j < observations.length; j++) {
-      // For every observations in the ufo object, create a new cell at set its inner text to be the current value at the current ufo's observation
-        var observation = observations[j];
-        var cell = row.insertCell(j);
-        cell.innerText = ufo[observation];
-    }
-  }
-}
-
-  $(document).ready(function () {
-    var firstRecord = 0;
-    var rowSize = 50;
-    var tableRows=$("#pagetable tbody tr");
-    $("a.pagination").click(function(e){
-      e.preventDefault();
-      if ($(this).attr("id") == "next"){
-            if (firstRecord + rowSize <= tableRows.length){ 
-                firstRecord += rowSize;}
-            } else {
-            if (firstRecord!= 0)
-             { firstRecord  -= rowSize;}
-            }
-         paginate(firstRecord, rowSize);
-       });
-      
-    var paginate =function(startAt, rowSize){
-       var endAt=startAt + rowSize - 1;
-         $(tableRows).each(function(index){
-           if (index >= startAt && index <= endAt){
-             $(this).show();
-           } else{
-             $(this).hide();
-           }
+    console.log("taco");
+    /*data.forEach((ufoDate) => {
+    row = tbody.append("tr");
+    Object.entries(row).forEach((ufoDate) => {
+      var cell = tbody.append("td");
+      cell.text(ufoDate.value);
+      });
+    });
+  data.forEach((ufoDate) => {
+  Object.entries(ufoDate).forEach((filteredUFO) => {
+    var row = tbody.append("tr");
+      var cell = row.append("td");
+        cell.text(filteredUFO);*/
+  data.forEach((ufoDate) => {
+    var row = tbody.append("tr");
+    Object.entries(ufoDate).forEach(([key, value]) => {
+       var cell = tbody.append("td");
+        cell.text(value);
          });
-     }
-     paginate(firstRecord, rowSize);
-    });
-
-    renderTable();
-
-    });
-  }
-});
+        });
+      };
+  renderTable();
