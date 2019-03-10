@@ -108,6 +108,7 @@ select {
 .hero p {
   font-size: 2rem;
   opacity: 0;
+  color: rgb(70, 24, 30);
   animation: subtitle 1.2s forwards linear;
   animation-delay: 1.2s;
 }
