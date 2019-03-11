@@ -51,6 +51,7 @@ body {
 /* Adding styles to the aside and filter form */
 .ufo-form {
   margin-top: 50px;
+  font-size: 1.3rem;
 }
 
 .filters .panel-body {
@@ -66,26 +67,31 @@ select {
   width: 100%;
   padding: 8px;
   color: #8e979f;
-  background: #004f94;
+  font-size: 1.3rem;
+  background: #012f57;
   outline: none;
 }
 
 #table-area th {
   text-align: center;
+  font-size: 1.3rem;
 }
 
 #table-area th:first-child,
 #table-area th:nth-child(2),
 #table-area th:nth-child(6) {
   min-width: 70px;
+  font-size: 1.3rem;
 }
 
 .loader {
   margin-top: 50px;
+  font-size:1.3rem;
 }
 
 .margin-top-50 {
   margin-top: 50px;
+  font-size:1.3rem;
 }
 
 /* The styles for the parallax */
@@ -137,19 +143,27 @@ select {
 }
 
 /* media queries which will only be activated at specific screen sizes */
+@media (max-width: 2000px) {
+  #table-area td {
+    font-size: 1.2em
+  }
+}
+
 @media (max-width: 800px) {
   #table-area td {
-    font-size: 1.50em;
+    font-size: 1.30em;
   }
 }
 
 @media (max-width: 500px) {
   #table-area thead {
     display: none;
+    font-size: 1.3rem;
+    background: #004f94;
   }
 
   #table-area tr td:first-child {
-    font-size: 1.8em;
+    font-size: 1.5em;
     font-weight: bold;
     background: #001488;
   }
@@ -157,29 +171,31 @@ select {
   #table-area tr td:last-child {
     margin-bottom: 20px;
     background: #004f94;
+    font-size: 1.2em;
   }
 
   #table-area tr td:last-child::after {
     display: block;
     width: 100%;
-    height: 1.50px;
+    height: 1.20px;
     margin-top: 20px;
     content: " ";
     background: aliceblue;
   }
 
   #table-area td {
-    font-size: 1.50em;
+    font-size: 1.20em;
   }
 
   #table-area tbody td {
     display: block;
     text-align: center;
+    font-size: 1.20em;
   }
 
   #table-area tbody td::before {
     display: block;
-    font-size: 1.7em;
+    font-size: 1.2em;
     font-weight: bold;
     text-align: center;
     content: attr(data-th);
